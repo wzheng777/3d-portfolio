@@ -1,20 +1,44 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# 3D Portfolio Demo
 
-# Run and deploy your AI Studio app
+This is a demo application showcasing the power of **React** and **Three.js** (via `@react-three/fiber` and `@react-three/drei`) to create immersive 3D web experiences.
 
-This contains everything you need to run your app locally.
+## Features
+- Interactive 3D scene
+- Built with React 19 and Vite
+- Styled with Tailwind CSS (if applicable) or custom CSS
 
-View your app in AI Studio: https://ai.studio/apps/temp/2
+## Getting Started
 
-## Run Locally
+### Prerequisites
+- Node.js installed on your machine.
 
-**Prerequisites:**  Node.js
+### Installation
 
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/wzheng777/3d-portfolio.git
+   cd 3d-portfolio
+   ```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+### Running Locally
+
+Start the development server:
+```bash
+npm run dev
+```
+Open your browser and navigate to `http://localhost:3000` (or the port shown in your terminal).
+
+## Deployment
+
+This project is configured for deployment to GitHub Pages.
+
+To deploy a new version:
+```bash
+npm run deploy
+```
+This command will build the project and push it to the `gh-pages` branch.
