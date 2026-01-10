@@ -19,7 +19,7 @@ const Building: React.FC<BuildingProps> = ({ onSelectSide, activeSection }) => {
       meshRef.current.rotation.y += delta * 0.1;
       meshRef.current.position.y = Math.sin(state.clock.elapsedTime) * 0.2 + 2;
     } else if (meshRef.current && activeSection) {
-        // Stop rotation if active, maybe align nicely (optional, managed by camera usually)
+      // Stop rotation if active, maybe align nicely (optional, managed by camera usually)
     }
   });
 
@@ -54,12 +54,12 @@ const Building: React.FC<BuildingProps> = ({ onSelectSide, activeSection }) => {
       <mesh ref={meshRef}>
         <boxGeometry args={[4, 8, 4]} />
         <meshStandardMaterial {...materialProps} />
-        
+
         {/* Face 1: Front - Profile */}
-        <Face 
-          position={[0, 0, 2.01]} 
-          rotation={[0, 0, 0]} 
-          label="PROFILE" 
+        <Face
+          position={[0, 0, 2.01]}
+          rotation={[0, 0, 0]}
+          label="PROFILE"
           subLabel="Highlights"
           isHovered={hovered === SectionType.PROFILE}
           onClick={handleClick(SectionType.PROFILE)}
@@ -68,10 +68,10 @@ const Building: React.FC<BuildingProps> = ({ onSelectSide, activeSection }) => {
         />
 
         {/* Face 2: Right - Experience */}
-        <Face 
-          position={[2.01, 0, 0]} 
-          rotation={[0, Math.PI / 2, 0]} 
-          label="EXPERIENCE" 
+        <Face
+          position={[2.01, 0, 0]}
+          rotation={[0, Math.PI / 2, 0]}
+          label="EXPERIENCE"
           subLabel="Career History"
           isHovered={hovered === SectionType.EXPERIENCE}
           onClick={handleClick(SectionType.EXPERIENCE)}
@@ -80,10 +80,10 @@ const Building: React.FC<BuildingProps> = ({ onSelectSide, activeSection }) => {
         />
 
         {/* Face 3: Back - Skills */}
-        <Face 
-          position={[0, 0, -2.01]} 
-          rotation={[0, Math.PI, 0]} 
-          label="SKILLS" 
+        <Face
+          position={[0, 0, -2.01]}
+          rotation={[0, Math.PI, 0]}
+          label="SKILLS"
           subLabel="Tech Stack"
           isHovered={hovered === SectionType.SKILLS}
           onClick={handleClick(SectionType.SKILLS)}
@@ -92,10 +92,10 @@ const Building: React.FC<BuildingProps> = ({ onSelectSide, activeSection }) => {
         />
 
         {/* Face 4: Left - Education */}
-        <Face 
-          position={[-2.01, 0, 0]} 
-          rotation={[0, -Math.PI / 2, 0]} 
-          label="EDUCATION" 
+        <Face
+          position={[-2.01, 0, 0]}
+          rotation={[0, -Math.PI / 2, 0]}
+          label="EDUCATION"
           subLabel="& Contact"
           isHovered={hovered === SectionType.EDUCATION}
           onClick={handleClick(SectionType.EDUCATION)}
@@ -105,16 +105,16 @@ const Building: React.FC<BuildingProps> = ({ onSelectSide, activeSection }) => {
       </mesh>
 
       {/* Floor Reflection for modern vibe */}
-       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -2.5, 0]}>
+      {/* <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -2.5, 0]}>
         <planeGeometry args={[50, 50]} />
-        <meshStandardMaterial 
-            color="#0f172a" 
-            metalness={0.9} 
-            roughness={0.1}
-            transparent
-            opacity={0.8}
+        <meshStandardMaterial
+          color="#0f172a"
+          metalness={0.9}
+          roughness={0.1}
+          transparent
+          opacity={0.8}
         />
-      </mesh>
+      </mesh> */}
     </group>
   );
 };
@@ -131,46 +131,46 @@ interface FaceProps {
 }
 
 const Face: React.FC<FaceProps> = ({ position, rotation, label, subLabel, isHovered, onClick, onPointerOver, onPointerOut }) => {
-    return (
-        <group position={position} rotation={rotation}>
-            {/* Interactive Plane */}
-            <mesh onClick={onClick} onPointerOver={onPointerOver} onPointerOut={onPointerOut}>
-                <planeGeometry args={[3.8, 7.8]} />
-                <meshStandardMaterial 
-                    color={isHovered ? "#1e293b" : "#0f172a"} 
-                    emissive={isHovered ? "#3b82f6" : "#000000"}
-                    emissiveIntensity={isHovered ? 0.5 : 0}
-                    roughness={0.2}
-                    metalness={0.8}
-                />
-            </mesh>
-            {/* Text Label */}
-            <Text
-                position={[0, 1, 0.1]}
-                fontSize={0.5}
-                color={isHovered ? "#ffffff" : "#94a3b8"}
-                anchorX="center"
-                anchorY="middle"
-                font="https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu4mxM.woff" // Generic web font fallback
-            >
-                {label}
-            </Text>
-            <Text
-                position={[0, 0.4, 0.1]}
-                fontSize={0.2}
-                color={isHovered ? "#bfdbfe" : "#64748b"}
-                anchorX="center"
-                anchorY="middle"
-            >
-                {subLabel}
-            </Text>
-            {/* Decorative Lines */}
-            <mesh position={[0, -2, 0.1]}>
-                <planeGeometry args={[0.1, 2]} />
-                <meshBasicMaterial color={isHovered ? "#3b82f6" : "#334155"} />
-            </mesh>
-        </group>
-    )
+  return (
+    <group position={position} rotation={rotation}>
+      {/* Interactive Plane */}
+      <mesh onClick={onClick} onPointerOver={onPointerOver} onPointerOut={onPointerOut}>
+        <planeGeometry args={[3.8, 7.8]} />
+        <meshStandardMaterial
+          color={isHovered ? "#1e293b" : "#0f172a"}
+          emissive={isHovered ? "#3b82f6" : "#000000"}
+          emissiveIntensity={isHovered ? 0.5 : 0}
+          roughness={0.2}
+          metalness={0.8}
+        />
+      </mesh>
+      {/* Text Label */}
+      <Text
+        position={[0, 1, 0.1]}
+        fontSize={0.5}
+        color={isHovered ? "#ffffff" : "#94a3b8"}
+        anchorX="center"
+        anchorY="middle"
+        font="https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu4mxM.woff" // Generic web font fallback
+      >
+        {label}
+      </Text>
+      <Text
+        position={[0, 0.4, 0.1]}
+        fontSize={0.2}
+        color={isHovered ? "#bfdbfe" : "#64748b"}
+        anchorX="center"
+        anchorY="middle"
+      >
+        {subLabel}
+      </Text>
+      {/* Decorative Lines */}
+      <mesh position={[0, -2, 0.1]}>
+        <planeGeometry args={[0.1, 2]} />
+        <meshBasicMaterial color={isHovered ? "#3b82f6" : "#334155"} />
+      </mesh>
+    </group>
+  )
 }
 
 export default Building;
