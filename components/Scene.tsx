@@ -28,7 +28,7 @@ const Scene: React.FC<SceneProps> = ({ onSelectSide, activeSection }) => {
       />
 
       <Environment
-        files="moonlit_golf_4k.exr"
+        preset="sunset"
         ground={{ height: 5, radius: 40, scale: 30 }}
       />
 
